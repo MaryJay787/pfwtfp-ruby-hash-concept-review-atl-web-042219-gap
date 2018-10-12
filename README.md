@@ -63,8 +63,32 @@ puts fruits["dragonfruit"]
 => ["fuschia", "white", "black"]
 ```
 
+And if we wanted to add _two_ sets associated data to our fruit:
+```ruby
+fruits = {
+        "mango" => {
+                "colors" => ["orange","red","green"],
+                "nutrients" => ["vitamin A", "vitamin B-6", "vitamin C"]
+                },
+        "papaya"  => {
+                "colors" => ["orange","green"],
+                "nutrients" => ["vitamin C", "magnesium", "potassium"]
+                },  
+        etc...
+        }
+```
+We can access the value of each set of keys like so:
+```ruby
+puts fruits["mango"]["colors"]
+=> ["orange", "red", "green"]
+
+puts fruits["papaya"]["nutrients"]
+=> ["vitamin C", "magnesium", "potassium"]
+```
+
 Now that we know the basics of what hashes are capable of, let's look
 at how we can create them!
+
 
 ### Demonstrate Hash Creation in Ruby
 
@@ -126,5 +150,15 @@ You can retrieve the value by indexing the hash with the same key. The values in
 a hash can be objects of any type.
 
 ## Conclusion
+
+Hashes are a universal programming concept that are great for faster, simpler data 
+access. While arrays are used for any sequence of things that need to be in order, 
+hashes are used to map or associate information you want to store to keys. They can
+be seen as "look up tables," like a dictionary or glossary. Hashes can be created by
+initializing a new hash with the `.new` method or an empty hash with `{}` and assigning
+values to keys with the bracket notation, `.store`, or with the literal `=>`. Now we can
+retrieve different types of data objects much more easily!
+
+
 
 ## Resources
