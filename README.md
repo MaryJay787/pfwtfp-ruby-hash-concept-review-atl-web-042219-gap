@@ -8,12 +8,13 @@ while the index of arrays are always defined by integers. The hash index can
 be objects of any type--integer, strings, symbols, and others.
 
 ## Learning Goals
-1. Recognize hash as a core tool in Ruby
-2. Demonstrate hash creation in Ruby
+
+1.  Recognize hash as a core tool in Ruby
+2.  Demonstrate hash creation in Ruby
 
 ### Recognize Hash as a Core Tool in Ruby
 
-Hashes are an important and commonly used data type. This of hashes like a
+Hashes are an important and commonly used data type. Think of hashes like a
 dictionary that contain a collection of unique keys and values associated
 with them. That means you can use integer, string, symbol, or even a boolean
 and array as a key in your hash/dictionary.
@@ -32,10 +33,10 @@ the index for each:
 
 ```ruby
 fruits = [
-        ["mango", ["orange","red","green"]], 
-        ["papaya", ["orange","green"]], 
-        ["coconut", ["brown", "white"]], 
-        ["plantain",["green","yellow", "brown"]], 
+        ["mango", ["orange","red","green"]],
+        ["papaya", ["orange","green"]],
+        ["coconut", ["brown", "white"]],
+        ["plantain",["green","yellow", "brown"]],
         ["dragonfruit",["red", "white", "black"]]
         ]
 ```
@@ -66,10 +67,12 @@ Now that we know the basics of what hashes are capable of, let's look
 at how we can create them!
 
 ### Demonstrate Hash Creation in Ruby
-Hashes are powerful collections with many method that programmers can use to
+
+Hashes are powerful collections with many methods that programmers can use to
 create them. Hashes can be created in 2 relatively straight-forward ways:
 
 #### Use the `new` Keyword
+
 ```ruby
 groceries = Hash.new
 groceries[1] = "potatoes"
@@ -92,10 +95,11 @@ groceries.store(3, "eggs")
 //puts groceries
 //{1=>"potatoes", 2=>"onions", 3=>"eggs"}
 ```
- When you store a value in a hash, you supply two objects - the index (also
- called the key) and the value. 
 
-#### Use the hash literal
+When you store a value in a hash, you supply two objects - the index (also
+called the key) and the value.
+
+#### Use the Hash Literal
 
 A hash can also be created using literal notation. You can initialize an empty
 hash similarly to `Hash.new` by setting a variable to an empty set of curly braces `{}`.
@@ -103,6 +107,7 @@ hash similarly to `Hash.new` by setting a variable to an empty set of curly brac
 ```ruby
 states = {}
 ```
+
 A hash can be created with shorthand by passing in key value pairs.
 
 ```ruby
@@ -116,6 +121,7 @@ states = {
 //puts states
 //{"AL" => "Alabama", "AK" => "Alaska", "AZ" => "Arizona", "AR" => "Arkansas"}
 ```
+
 You can retrieve the value by indexing the hash with the same key. The values in
 a hash can be objects of any type.
 
