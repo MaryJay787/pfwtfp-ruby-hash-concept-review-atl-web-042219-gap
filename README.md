@@ -158,7 +158,3 @@ be seen as "look up tables," like a dictionary or glossary. Hashes can be create
 initializing a new hash with the `.new` method or an empty hash with `{}` and assigning
 values to keys with the bracket notation, `.store`, or with the literal `=>`. Now we can
 retrieve different types of data objects much more easily!
-
-
-
-## Resources
