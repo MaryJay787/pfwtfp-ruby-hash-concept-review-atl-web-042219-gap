@@ -1,11 +1,11 @@
 # Hash Concept Review
 
 ## Introduction
+Hashes are an important and commonly used data type. Think of hashes like a
+dictionary that contain a collection of unique keys and values associated
+with them. That means you can use integer, string, symbol, or even a boolean
+and array as a key in your hash/dictionary.
 
-Hashes and arrays are similar in that they are indexed collections of object
-references. However, unlike arrays, hashes can use _any_ object as an index,
-while the index of arrays are always defined by integers. The hash index can
-be objects of any type--integer, strings, symbols, and others.
 
 ## Learning Goals
 
@@ -13,11 +13,11 @@ be objects of any type--integer, strings, symbols, and others.
 2.  Demonstrate hash creation in Ruby
 
 ### Recognize Hash as a Core Tool in Ruby
+Hashes and arrays are similar in that they are indexed collections of object
+references. However, unlike arrays, hashes can use _any_ object as an index,
+while the index of arrays are always defined by integers. The hash index can
+be objects of any type--integer, strings, symbols, and others.
 
-Hashes are an important and commonly used data type. Think of hashes like a
-dictionary that contain a collection of unique keys and values associated
-with them. That means you can use integer, string, symbol, or even a boolean
-and array as a key in your hash/dictionary.
 
 Let's start with an array that contains 5 different fruits.
 
