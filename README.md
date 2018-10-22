@@ -2,60 +2,51 @@
 
 ## Introduction
 
-Hashes and arrays are similar in many ways. They are collections of things -
-data types. Strings, Numbers, Booleans… or even other hashes and arrays!
-However, unlike arrays, hashes can use any data type for the index. All of the
-following hashes are valid:
+Hashes and arrays are similar in many ways.
 
-```ruby
-hash_with_number_keys = {0 => "hello", 1 => "world"}
-hash_with_number_keys[0]
-# => "hello"
+- They are both _data structures_
+- They are **essential** tools for programmers to understand
+- They are both used to hold collections of things
 
-hash_with_string_keys = { "you say" => "goodbye", "I say" => "hello"}
-hash_with_string_keys["you say"]
-# => "goodbye"
-
-
-hash_with_array_keys = { [2,3] => "hi", [4,5] => "world"}
-hash_with_array_keys[[4,5]]
-# => "world"
-
-hash_with_boolean_keys = { true => "yes", false => "no"}
-hash_with_boolean_keys[true]
-# => "yes"
-```
-
-Arrays, on the other hand, can only use an integer as the index:
-
-```ruby
-array = ["hello", "world"]
-array[0]
-# => "hello"
-```
-
-As we will see in this lesson, it turns out that this ability to index however
-we like makes the hash a powerful tool!
+They _differ_ in how we find elements in the collection and whether the items
+have any ordering mechanism.
 
 ## Learning Goals
 
-1.  Recognize hash as a core tool in Ruby
-2.  Demonstrate hash creation in Ruby
+1.  Recognize hash as a core tool in programming
+2.  Recognize hash vocabulary word: Key
+3.  Recognize hash vocabulary word: Value
+4.  Compare Weakness of Nested Arrays versus a Hash
+5.  View a `Hash` in Ruby
+6.  Access `Hash` Elements Through Bracket-Notation in Ruby
+7.  Create `Hash`es in Ruby
 
-### Recognize Hash as a Core Tool in Ruby
+## Recognize Hash as a Core Tool in Ruby
 
-Hashes are an important and commonly used data type. Take your time and make
-sure you understand how they work.
+Hashes are an important and commonly used data type. Ruby, Python, and
+JavaScript developers use hashes (or something very similar to it) **every
+day**.  Take your time and make sure you understand how they work.
 
-Think of hashes like a dictionary. Like a dictionary, hashes contain a
-collection of unique keys (words) and values associated with them (definitions).
+Think of hashes like a dictionary. Dictionaries have a unique word that points
+to a definition of that word. The word `ant` points to a definition like "a
+small insect that likes to ruin picnics" and `anteater` is a unique word that
+points to a definition like "a large mammal that likes to eat ants."
 
->     Ruby(key): An awesome programming language (definition)
+## Recognize Hash Vocabulary Word: Key
+
+In a dictionary we lookup a definition by the word. When we look things up in a
+hash we call the unique thing we search by the _key_.
+
+## Recognize Hash Vocabulary Word: Value
+
+In a dictionary, when we lookup a definition by the word we get its definition.
+When we look things up in a hash based on the key, we get back the _value_ of
+that _key_ in the hash.
 
 Unlike a dictionary which uses words as keys, you can use integer, string,
 symbol, or even a boolean and array as a key in your hash/dictionary.
 
-> ♕(key): A piece in a chess game (definition).
+## Compare Weakness of Nested Arrays versus a Hash
 
 To recognize the value of using a hash, let's take a look at an example array
 that contains 5 different fruits:
@@ -64,11 +55,20 @@ that contains 5 different fruits:
 fruits = ["mango", "papaya", "coconut", "plantain", "dragonfruit"]
 ```
 
+Let's say that Flatiron Genetic Engineering as now created new colors of these
+5 fruits. They sent the new information over to us in the form of a table:
+
+| Fruit      | Color Varieties|
+|------------|----------------|
+|mango       |orange,red,green|
+|papaya      |orange,green|
+|coconut     |brown, white|
+|plantain    |green,yellow, brown|
+|dragonfruit |red, white, black|
+
 Now that we have a list of fruits, what if we wanted to associate more
-information with each? It would be rather challenging to add in and access
-specific pieces of information to this array. The nested arrays would become
-complex and cumbersome, and accessing the information would require knowing
-the index for each:
+information with each? We _could_ try to make an array of arrays or "nested
+array" work like so:
 
 ```ruby
 fruits = [
@@ -80,7 +80,55 @@ fruits = [
         ]
 ```
 
-In a hash, this information could be organized much more neatly as such:
+But how would we get the varieties of the `"plaintain"`? We would have to loop
+through the array by even-number increments from 0, find the index that matches
+the string, add `1` to that index, and get back the array.
+
+Gross.
+
+What we want to say is "Hey hash! Give me the array associated with the
+`String` `"plantain"`. Or, more technically, "Hey hash, let me give you a
+_key_, please return its corresponding _value_." We'll learn to do that now.
+
+## View a `Hash` in Ruby
+
+Let's assume someone defined our fruit table as a `Hash` in Ruby. They've
+assigned it to the constant `FRUITS`. We can print the contents in IRB like so
+using the `p` command:
+
+```ruby
+2.3.3 :001 > p FRUITS
+{"mango"=>["orange", "red", "green"], "papaya"=>["orange", "green"], "coconut"=>["brown", "white"], "plantain"=>["green", "yellow", "brown"], "dragonfruit"=>["fuschia", "white", "black"]}
+ => {"mango"=>["orange", "red", "green"], "papaya"=>["orange", "green"], "coconut"=>["brown", "white"], "plantain"=>["green", "yellow", "brown"], "dragonfruit"=>["fuschia", "white", "black"]}
+```
+
+As we can see, as `Array`s are surrounded by square-brackets (`[]`), `Hash`es
+are surrounded by curly-braces (`{}`). The _key_ is listed and is shown
+"pointing to" with an arrow (`=>`) the _value_. So we see that `"mango"` points
+to `["orange", "red", "green"]`.
+
+## Access `Hash` Elements Through Bracket-Notation in Ruby
+
+To access the contents of a `Hash` we provide the _key_ in bracket notation
+(just like an `Array`).
+
+Thus:
+
+```ruby
+FRUITS["dragonfruit"] #=> ["fuschia", "white", "black"]
+FRUITS["dragonfruit"][1] #=> "white"
+```
+
+## Create `Hash`es in Ruby
+
+Just like `Array`, in Ruby, we can create `Hash`es with a `Hash`-literal format
+**or** with a constructor method called `Hash.new`. _Just like with `Array_,
+most of the time, when creating a `Hash` from scratch, we prefer the Hash
+literal syntax.
+
+### Hash Literal Syntax
+
+Here's your own `fruits` hash:
 
 ```ruby
 fruits = {
@@ -92,17 +140,8 @@ fruits = {
         }
 ```
 
-The value for each fruit can now be accessed by its key:
-
-```ruby
-puts fruits["coconut"]
-=> ["brown", "white"]
-
-puts fruits["dragonfruit"]
-=> ["fuschia", "white", "black"]
-```
-
-And if we wanted to add _two_ sets of associated data to our fruit:
+Since we're getting comfortable with nested data structures, let's try nesting
+our `Hash`es:
 
 ```ruby
 fruits = {
@@ -113,106 +152,19 @@ fruits = {
         "papaya"  => {
                 "colors" => ["orange","green"],
                 "nutrients" => ["vitamin C", "magnesium", "potassium"]
-                },  
-        etc...
+                }
         }
 ```
 
-We can access the value of each set of keys like so:
-
-```ruby
-puts fruits["mango"]["colors"]
-=> ["orange", "red", "green"]
-
-puts fruits["papaya"]["nutrients"]
-=> ["vitamin C", "magnesium", "potassium"]
-```
-
-Since we can use Strings as hash keys, we use keys to describe what their values
-are, making it much easier to understand and access data.
-
-#### Order Does Not Matter
-
-Another benefit of hashes is that order of key value pairs does not matter. Back
-in our array of fruits and fruit colors, if we want to access color information
-for a particular fruit, say `"coconut"`, we either need to know its position or
-find it by iterating over the array:
-
-```ruby
-fruits = [
-        ["mango", ["orange","red","green"]],
-        ["papaya", ["orange","green"]],
-        ["coconut", ["brown", "white"]],
-        ["plantain",["green","yellow", "brown"]],
-        ["dragonfruit",["red", "white", "black"]]
-        ]
-
-fruits[2][1]
-# => ["brown", "white"]
-```
-
-If a new fruit was added to the beginning of this array, suddenly,
-`fruits[2][1]` no longer refers to `["coconut", ["brown", "white"]]`. But
-with a hash, keys can be in any order:
-
-```ruby
-fruits = {
-        "mango" => {
-                "colors" => ["orange","red","green"],
-                "nutrients" => ["vitamin A", "vitamin B-6", "vitamin C"]
-                },
-        "coconut"  => {
-                "colors" => ["brown","white"],
-                "nutrients" => ["vitamin C", "magnesium", "potassium"]
-                },  
-        etc...
-        }
-
-fruits["coconut"]["colors"]
-# => ["brown", "white"]
-```
-
-Being able to simply state `fruits["coconut"]["colors"]` is clear and direct.
-
-#### Instant Look Up
-
-When handling large sets of data, the ability look up hash values by key
-actually provides a boost in performance.
-
-Imagine an array of _all_ fruits, vegetables, grains, etc... We don't know where
-particular fruit are positioned within the array so we can't just type
-`fruits[2][1]`. Instead, we need to iterate over the array and look for matches:
-
-```ruby
-fruits.find {|fruit| fruit[0] == "coconuts"}
-# => ["coconut", ["brown", "white"]]
-fruits.find {|fruit| fruit[0] == "coconuts"}[1]
-# => ["brown", "white"]
-```
-
-Having to use `find` on a large array means looking at _every_ item in the array
-until there is a match. The length of the array determines how long it takes to
-find something in it.
-
-In a hash, if we know the key, we can instantly find what we need every time, no
-matter how big or small the entire hash is:
-
-```ruby
-fruits["coconut"]["colors"]
-# => ["brown", "white"]
-```
-
-### Demonstrate Hash Creation in Ruby
-
-Now that we know the basics of what hashes are capable of, let's look at
-how we can create them!
-
-Hashes can be created in 2 relatively straight-forward ways:
+> **STRETCH:** Use bracket notation to print out the first nutrient for a
+> papaya.
 
 #### Use the `new` Keyword
 
+Unlike `Array`, it's common to use the `Hash.new` constructor method.
+
 ```ruby
-groceries = Hash.new
+groceries = Hash.new # OR: groceries = {}
 groceries[1] = "potatoes"
 groceries[2] = "onions"
 groceries[3] = "eggs"
@@ -234,35 +186,26 @@ puts groceries
 # => {1=>"potatoes", 2=>"onions", 3=>"eggs"}
 ```
 
-When you store a value in a hash, you supply two objects - the index (also
-called the key) and the value.
+### Quick Check
 
-#### Use the Hash Literal
-
-A hash can also be created using literal notation. You can initialize an empty
-hash similarly to `Hash.new` by setting a variable to an empty set of curly
-braces `{}`.
+As a stretch, try this code out in your head, and then in IRB:
 
 ```ruby
-states = {}
+directors = {}
+directors.store("Coppola", Hash.new)
+directors["Coppola"] = { "Francis Ford" => { "movies" => ["The Godfather", "Apocalypse Now"], "life" => "Guy from Detroit tells the triumph and tragedy of a dream called 'America'"} }
+directors["Coppola"]["Sophia"] = {}
+directors["Coppola"]["Sophia"]["movies"] = ["Lost in Translation", "Virgin Suicides"]
+directors["Coppola"]["Sophia"].store("life", "Tough childhood in the Philippines with her father, tried acting, met Kirsten Dunst and made moody movies")
 ```
 
-A hash can be created with shorthand by passing in key value pairs.
+What are the value of these look-ups?
 
-```ruby
-states = {
-    "AL" => "Alabama",
-    "AK" => "Alaska",
-    "AZ" => "Arizona",
-    "AR" => "Arkansas"
-}
-
-puts states
-# => {"AL" => "Alabama", "AK" => "Alaska", "AZ" => "Arizona", "AR" => "Arkansas"}
-```
-
-You can retrieve the value by indexing the hash with the same key. The values in
-a hash can be objects of any type.
+- `directors["Coppola"]["Francis Ford"]["movies"][2]`
+- `directors["Coppola"]["Sophia"]["movies"]["life"]`
+- `directors["Coppola"]["Francis Ford"]["movies"][1]`
+- `directors["Coppola"]["Sophia"]["life"]
+``
 
 ## Conclusion
 
