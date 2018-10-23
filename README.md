@@ -16,7 +16,7 @@ have any ordering mechanism.
 1.  Recognize hash as a core tool in programming
 2.  Recognize hash vocabulary word: Key
 3.  Recognize hash vocabulary word: Value
-4.  Compare Weakness of Nested Arrays versus a Hash
+4.  Compare Weakness of Nested `Array`s versus a `Hash`
 5.  View a `Hash` in Ruby
 6.  Access `Hash` Elements Through Bracket-Notation in Ruby
 7.  Create `Hash`es in Ruby
@@ -35,16 +35,20 @@ points to a definition like "a large mammal that likes to eat ants."
 ## Recognize Hash Vocabulary Word: Key
 
 In a dictionary we lookup a definition by the word. When we look things up in a
-hash we call the unique thing we search by the _key_.
+hash we call the unique thing we search by the _key_. Some documentation calls
+the _key_ the _index_ &mdash; just like with an array. We're going to call it a
+_key_.
 
 ## Recognize Hash Vocabulary Word: Value
 
 In a dictionary, when we lookup a definition by the word we get its definition.
-When we look things up in a hash based on the key, we get back the _value_ of
+When we look things up in a hash based on the _key_, we get back the _value_ of
 that _key_ in the hash.
 
-Unlike a dictionary which uses words as keys, you can use integer, string,
-symbol, or even a boolean and array as a key in your hash/dictionary.
+Unlike a real dictionary which uses words or (`String`s) as keys, you can use
+`Integer`s, `Symbol`s, a `Boolean` or even an `Array` as a key in your hash.
+
+Most of the time we use a `String`, though.
 
 ## Compare Weakness of Nested Arrays versus a Hash
 
@@ -66,9 +70,9 @@ Let's say that Flatiron Genetic Engineering has now created new colors of these
 | plantain    | green,yellow, brown |
 | dragonfruit | red, white, black   |
 
-Now that we have a list of fruits, what if we wanted to associate more
-information with each? We _could_ try to make an array of arrays or "nested
-array" work like so:
+Now that we have a list of modified fruits, what if we wanted to associate the
+color varieties with each fruit? We _could_ try to make an array of arrays or
+"nested array" work like so:
 
 ```ruby
 fruits = [
@@ -80,15 +84,37 @@ fruits = [
         ]
 ```
 
-But how would we get the varieties of the `"plaintain"`? We would have to loop
-through the array by even-number increments from 0, find the index that matches
-the string, add `1` to that index, and get back the array.
+But how would we get the varieties of the `"plaintain"`? Let's write the
+pseudocode
+
+```text
+key= "plaintain"
+counter = -1
+fruits_array_length = calculate_length_of_array(fruits)
+
+For each element in the fruits array
+  counter = counter + 1
+  if counter > fruits_array_length
+    print "Could not find the key"
+    exit
+  end
+
+  if counter % 2 == 0
+    if fruits[counter] == key
+      return fruits[counter + 1]
+    end
+  end
+```
+
+We would have to loop through the array by even-number increments from 0, find
+the index that matches the string, add `1` to that index, and get back the
+array. We'd also need to do something for if the string was not found.
 
 Gross.
 
 What we want to say is "Hey hash! Give me the array associated with the
 `String` `"plantain"`. Or, more technically, "Hey hash, let me give you a
-_key_, please return its corresponding _value_." We'll learn to do that now.
+_key_, please return its corresponding _value_."
 
 ## View a `Hash` in Ruby
 
@@ -102,7 +128,7 @@ using the `p` command:
  => {"mango"=>["orange", "red", "green"], "papaya"=>["orange", "green"], "coconut"=>["brown", "white"], "plantain"=>["green", "yellow", "brown"], "dragonfruit"=>["fuschia", "white", "black"]}
 ```
 
-As we can see, as `Array`s are surrounded by square-brackets (`[]`), `Hash`es
+As we can see, while `Array`s are surrounded by square-brackets (`[]`), `Hash`es
 are surrounded by curly-braces (`{}`). The _key_ is listed and is shown
 "pointing to" with an arrow (`=>`) the _value_. So we see that `"mango"` points
 to `["orange", "red", "green"]`.
