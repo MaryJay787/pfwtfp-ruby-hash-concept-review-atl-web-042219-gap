@@ -16,7 +16,7 @@ have any ordering mechanism.
 1.  Recognize hash as a core tool in programming
 2.  Recognize hash vocabulary word: Key
 3.  Recognize hash vocabulary word: Value
-4.  Compare Weakness of Nested Arrays versus a Hash
+4.  Compare Weakness of Nested `Array`s versus a `Hash`
 5.  View a `Hash` in Ruby
 6.  Access `Hash` Elements Through Bracket-Notation in Ruby
 7.  Create `Hash`es in Ruby
@@ -40,7 +40,7 @@ hash we call the unique thing we search by the _key_.
 ## Recognize Hash Vocabulary Word: Value
 
 In a dictionary, when we lookup a definition by the word we get its definition.
-When we look things up in a hash based on the key, we get back the _value_ of
+When we look things up in a hash based on the _key_, we get back the _value_ of
 that _key_ in the hash.
 
 Unlike a dictionary which uses words as keys, you can use integer, string,
@@ -88,7 +88,7 @@ Gross.
 
 What we want to say is "Hey hash! Give me the array associated with the
 `String` `"plantain"`. Or, more technically, "Hey hash, let me give you a
-_key_, please return its corresponding _value_." We'll learn to do that now.
+_key_, please return its corresponding _value_."
 
 ## View a `Hash` in Ruby
 
@@ -102,7 +102,7 @@ using the `p` command:
  => {"mango"=>["orange", "red", "green"], "papaya"=>["orange", "green"], "coconut"=>["brown", "white"], "plantain"=>["green", "yellow", "brown"], "dragonfruit"=>["fuschia", "white", "black"]}
 ```
 
-As we can see, as `Array`s are surrounded by square-brackets (`[]`), `Hash`es
+As we can see, while `Array`s are surrounded by square-brackets (`[]`), `Hash`es
 are surrounded by curly-braces (`{}`). The _key_ is listed and is shown
 "pointing to" with an arrow (`=>`) the _value_. So we see that `"mango"` points
 to `["orange", "red", "green"]`.
