@@ -25,7 +25,7 @@ have any ordering mechanism.
 
 Hashes are an important and commonly used data type. Ruby, Python, and
 JavaScript developers use hashes (or something very similar to it) **every
-day**.  Take your time and make sure you understand how they work.
+day**. Take your time and make sure you understand how they work.
 
 Think of hashes like a dictionary. Dictionaries have a unique word that points
 to a definition of that word. The word `ant` points to a definition like "a
@@ -55,16 +55,16 @@ that contains 5 different fruits:
 fruits = ["mango", "papaya", "coconut", "plantain", "dragonfruit"]
 ```
 
-Let's say that Flatiron Genetic Engineering as now created new colors of these
+Let's say that Flatiron Genetic Engineering has now created new colors of these
 5 fruits. They sent the new information over to us in the form of a table:
 
-| Fruit      | Color Varieties|
-|------------|----------------|
-|mango       |orange,red,green|
-|papaya      |orange,green|
-|coconut     |brown, white|
-|plantain    |green,yellow, brown|
-|dragonfruit |red, white, black|
+| Fruit       | Color Varieties     |
+| ----------- | ------------------- |
+| mango       | orange,red,green    |
+| papaya      | orange,green        |
+| coconut     | brown, white        |
+| plantain    | green,yellow, brown |
+| dragonfruit | red, white, black   |
 
 Now that we have a list of fruits, what if we wanted to associate more
 information with each? We _could_ try to make an array of arrays or "nested
@@ -204,8 +204,8 @@ What are the value of these look-ups?
 - `directors["Coppola"]["Francis Ford"]["movies"][2]`
 - `directors["Coppola"]["Sophia"]["movies"]["life"]`
 - `directors["Coppola"]["Francis Ford"]["movies"][1]`
-- `directors["Coppola"]["Sophia"]["life"]
-``
+- `directors["Coppola"]["sophia"]["life"]
+  ``
 
 ## Conclusion
 
